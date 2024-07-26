@@ -1,0 +1,12 @@
+package coreJava;
+
+public class ParentKeyword
+{
+	String name="Krishna";
+	
+	public void getData()
+	{
+		System.out.println("I am in the Parent method");
+	}
+
+}

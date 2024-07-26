@@ -1,0 +1,38 @@
+package SauceDemoApp.TestComponents;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class BaseClass {
+	WebDriver driver;
+	
+	public void initializeDriver() throws IOException
+	{
+		
+		
+		Properties prop=new Properties();
+		FileInputStream fis=new FileInputStream("D:\\Selenium\\SauceDemoFramework\\src\\main\\java\\SauceDempApp\\resources\\GlobalData.properties");
+		prop.load(fis);
+		String browserName=prop.getProperty("browser");
+		
+		if(browserName=="chrome")
+		{
+			 driver=new ChromeDriver();
+		}
+		else if(browserName=="edge")
+		{
+			 driver=new EdgeDriver();
+		}
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		//Maximize screen
+		driver.manage().window().maximize();
+	}
+
+}

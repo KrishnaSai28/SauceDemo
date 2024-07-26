@@ -1,0 +1,5 @@
+package SauceDemoApp.pageobjects;
+
+public class ConfirmationPage {
+
+}

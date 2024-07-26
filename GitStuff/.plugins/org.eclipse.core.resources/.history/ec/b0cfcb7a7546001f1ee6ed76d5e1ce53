@@ -1,0 +1,68 @@
+package SauceDemoApp;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import SauceDemoApp.pageobjects.LoginPage;
+import SauceDemoApp.pageobjects.ProductCatalouge;
+
+public class EndToEndTestCase2 {
+	
+	@Test
+	public void saucedemo()
+	{
+		//Elements
+		String productName="Sauce Labs Fleece Jacket";
+		
+		WebDriver driver=new ChromeDriver();
+		//Implicit Wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		//Maximize screen
+		driver.manage().window().maximize();
+		
+		//Login
+		LoginPage login=new LoginPage(driver);
+		//Opening the URL
+		login.goTo("https://www.saucedemo.com/");
+		login.loginApplication("standard_user", "secret_sauce");
+	
+		
+		//Adding elements to cart
+		//Getting all items
+		ProductCatalouge products=new ProductCatalouge(driver);
+		//List<WebElement> productsList=products.getProductList();
+		products.addProductToCartPage(productName);
+		
+	
+		//Cart Page
+		driver.findElement(By.cssSelector(".shopping_cart_badge")).click();
+		List<WebElement> valid_product=driver.findElements(By.xpath("//div[@class='cart_item_label']"));
+		boolean validItem=valid_product.stream().anyMatch(s->s.findElement(By.cssSelector("a")).getText().equalsIgnoreCase(productName));
+		Assert.assertTrue(validItem);
+		
+		//Checkout
+		
+		driver.findElement(By.cssSelector("#checkout")).click();
+		
+		//payment
+		driver.findElement(By.id("first-name")).sendKeys("Sai");
+		driver.findElement(By.name("lastName")).sendKeys("Vang");
+		driver.findElement(By.xpath("//input[contains(@placeholder,'Zip')]")).sendKeys("50068");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		
+		driver.findElement(By.id("finish")).click();
+		Assert.assertEquals(driver.findElement(By.xpath("//div/h2")).getText(),"Thank you for your order!");
+		
+		driver.close();
+	}
+
+}

@@ -1,0 +1,36 @@
+package saikrishnalearning;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import saikrishnalearning.TestComponents.BaseClass;
+import saikrishnalearning.pageObjects.CartPage;
+import saikrishnalearning.pageObjects.CheckOutPage;
+import saikrishnalearning.pageObjects.ConfirmationPage;
+import saikrishnalearning.pageObjects.ProductCatalouge;
+
+public class SubmitOrderTest extends BaseClass {
+
+	@Test
+	public void SubmitOrder() throws IOException, InterruptedException
+	{
+		String productName="ADIDAS ORIGINAL";
+		String countryName="India";
+		//Products Add to Cart Page
+		ProductCatalouge productCatalouge=landingPage.loginApplicaion("selenium4@gmail.com", "Selinum@23");
+		List<WebElement> products= productCatalouge.getProductList();
+		productCatalouge.addProductToCart(productName);
+		//getting the cart list
+		CartPage cartSection=productCatalouge.goToCart();
+		Assert.assertTrue(cartSection.cartProductValidation(productName));
+		//checkout
+		CheckOutPage checkOut=cartSection.goToCheckOutPage();
+		ConfirmationPage message=checkOut.checkOutPage(countryName);
+		Assert.assertTrue(message.orderPlacement().equalsIgnoreCase("THANKyou FOR THE order."));
+	}
+
+}

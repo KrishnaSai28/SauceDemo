@@ -1,0 +1,30 @@
+package SeleniumFeature.SeleniumFeature;
+
+import java.util.Optional;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v120.emulation.Emulation;
+
+public class MobileEmulator {
+	
+	public void phoneView()
+	{
+		
+		ChromeDriver driver=new ChromeDriver();
+		
+		//step 2: getDevTools
+		
+		DevTools devTools=driver.getDevTools();
+		//create session
+		devTools.createSession();
+		
+		devTools.send(Emulation.setDeviceMetricsOverride(600,1000,50,true, Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty()));
+		
+		driver.get("https://rahulshettyacademy.com/angularAppdemo/");
+		
+		
+		
+	}
+
+}

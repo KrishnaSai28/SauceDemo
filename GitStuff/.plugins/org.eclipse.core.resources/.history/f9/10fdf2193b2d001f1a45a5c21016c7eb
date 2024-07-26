@@ -1,0 +1,21 @@
+package coreJava;
+
+public class ThisKeyword {
+	
+	int a=4;
+	
+	public static void main(String[] args)
+	{
+		ThisKeyword th=new ThisKeyword();
+		th.getData();
+	}
+	public void getData()
+	{
+		int a=5;
+		System.out.println(a);
+		System.out.println(this.a);
+		
+	}
+
+	
+}

@@ -1,0 +1,30 @@
+package coreJava;
+
+public class IndiaTraffic implements CentralTraffic {
+	
+	public static void main(String[] args)
+	{
+		CentralTraffic a=new IndiaTraffic();
+		
+	}
+
+	@Override
+	public void greengo() {
+		// TODO Auto-generated method stub
+		System.out.println("Good to go");
+		
+	}
+
+	@Override
+	public void redstop() {
+		// TODO Auto-generated method stub
+		System.out.println("need to stop");
+	}
+
+	@Override
+	public void yellowwait() {
+		// TODO Auto-generated method stub
+		System.out.println("just wait");
+	}
+
+}

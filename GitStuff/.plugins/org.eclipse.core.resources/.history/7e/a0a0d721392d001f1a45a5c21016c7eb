@@ -1,0 +1,26 @@
+package coreJava;
+
+public class ChildKeyword extends ParentKeyword {
+	
+	String name="Kohli";
+	
+	public ChildKeyword()
+	{
+		System.out.println("I am  the Child Constructor");
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		ChildKeyword cd=new ChildKeyword();
+		cd.getData();
+	}
+
+	public void getData()
+	{
+		
+		System.out.println(name);
+		System.out.println(super.name);
+		super.getData();
+	}
+}

@@ -1,0 +1,13 @@
+package coreJava;
+
+public class ChildKeyword extends ParentKeyword {
+	
+	String name="Kohli";
+	
+	
+	public static void main(String[] args)
+	{
+		System.out.println(name);
+	}
+
+}

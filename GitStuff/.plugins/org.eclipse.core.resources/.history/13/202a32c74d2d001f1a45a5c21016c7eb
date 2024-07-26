@@ -1,0 +1,33 @@
+package coreJava;
+
+public class StaticVar {
+	
+	//Instance Variables
+	String name;
+	String address;
+	static String city="Hyderabad";
+	
+	
+	//Constructor
+	StaticVar(String name,String street) // local variables
+	{
+		this.name=name;
+		this.address=street;
+	
+	}
+	
+	public void getData()
+	{
+		System.out.println(address+" "+city);
+	}
+	public static void main (String[] args)
+	{
+		StaticVar obj=new StaticVar("Raj","Kapra");
+		StaticVar obj1=new StaticVar("Himan","Vendi");
+		obj.getData();
+		obj1.getData();
+		
+	}
+	
+
+}
