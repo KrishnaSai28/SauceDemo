@@ -12,5 +12,14 @@ public class complete {
 		System.out.println("Fifth");
 		
 	}
+	
+	public void wake()
+	{
+		System.out.println("First");
+		
+		System.out.println("Fourth");
+		System.out.println("Fifth");
+		
+	}
 
 }

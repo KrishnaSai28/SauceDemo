@@ -11,5 +11,13 @@ public class complete {
 	
 		
 	}
+	public void sleeps()
+	{
+		System.out.println("First");
+		
+		System.out.println("Third");
+	
+		
+	}
 
 }
