@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Move &apos;testng.xml&apos; to &apos;TestSuites&apos;" description="Move &apos;testng.xml&apos; to &apos;TestSuites&apos;" destination="TestSuites" element1="testng.xml" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1721789263439" updateReferences="true"/>&#x0A;<refactoring comment="Move &apos;errorValidations.xml&apos; to &apos;TestSuites&apos;" description="Move &apos;errorValidations.xml&apos; to &apos;TestSuites&apos;" destination="TestSuites" element1="errorValidations.xml" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1721789420633" updateReferences="true"/>
-</session>

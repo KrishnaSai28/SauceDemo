@@ -1,8 +1,0 @@
-package coreJava;
-
-public class ParentKeyword
-{
-	String name="Krishna";
-	
-
-}
